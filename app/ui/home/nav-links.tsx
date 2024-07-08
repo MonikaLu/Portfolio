@@ -5,7 +5,7 @@ import {
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import {usePathname} from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
 // Map of links to display in the side navigation.
@@ -35,7 +35,8 @@ export default function NavLinks() {
               {
                 'bg-sky-100 text-blue-600': pathname === link.href,
               },
-            )}          >
+            )}
+          >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
           </Link>

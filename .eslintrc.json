@@ -1,0 +1,13 @@
+{
+"extends": ["eslint:recommended", "next"]
+  ,
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Add your custom rules here
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
