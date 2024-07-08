@@ -1,4 +1,7 @@
+/* eslint-disable react/react-in-jsx-scope */
 import SideNav from '@/app/ui/home/sidenav';
+
+export const experimental_ppr = true;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
