@@ -1,9 +1,9 @@
 {
-"extends": ["eslint:recommended", "next"]
-  ,
+  "extends": ["eslint:recommended", "next"],
   "plugins": ["@typescript-eslint"],
   "rules": {
-    // Add your custom rules here
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
   },
   "settings": {
     "react": {
