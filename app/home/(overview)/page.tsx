@@ -1,7 +1,6 @@
-import CardWrapper, { Card } from '@/app/ui/home/cards';
+import CardWrapper from '@/app/ui/home/cards';
 import RevenueChart from '@/app/ui/home/revenue-chart';
 import { lusitana } from '@/app/ui/fonts';
-import { fetchCardData } from '@/app/lib/data';
 import React, { Suspense } from 'react';
 import {
   CardSkeleton,
