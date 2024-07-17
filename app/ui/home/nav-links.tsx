@@ -11,6 +11,10 @@ const links = [
     href: '/home/invoices',
   },
   { name: 'Customers', href: '/home/customers' },
+  {
+    name: 'Projects',
+    href: '/home/projects',
+  },
 ];
 
 export default function NavLinks() {

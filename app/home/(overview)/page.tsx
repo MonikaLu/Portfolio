@@ -1,11 +1,20 @@
 import { lusitana } from '@/app/ui/fonts';
+import LatestInvoices from '@/app/ui/home/latest-invoices';
+import Image from 'next/image';
 
 export default async function Page() {
   return (
     <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Monika Luu Portfolio
-      </h1>
+      <div className="flex w-full items-center justify-between">
+        <h1 className={`${lusitana.className} text-3xl`}>Monika Luu</h1>
+        <Image
+          src="/monika_luu_profile.png"
+          width={500}
+          height={500}
+          alt="Picture of the author"
+        />
+      </div>
+      <LatestInvoices />
     </main>
   );
 }
