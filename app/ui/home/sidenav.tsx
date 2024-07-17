@@ -3,7 +3,7 @@ import { signOut } from '@/auth';
 
 export default function NavBar() {
   return (
-    <div className="flex w-full flex-row items-center gap-3 px-3 py-4 md:px-2">
+    <div className="flex w-full flex-row justify-end">
       <NavLinks />
       <form
         action={async () => {
@@ -11,8 +11,8 @@ export default function NavBar() {
           await signOut();
         }}
       >
-        <button className="flex h-[48px] w-[100px] items-center justify-center gap-2 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600">
-          <div className="md:block">Sign Out</div>
+        <button className="flex h-[48px] w-[85px] items-center justify-center gap-2 px-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600">
+          <p>Sign Out</p>
         </button>
       </form>
     </div>
