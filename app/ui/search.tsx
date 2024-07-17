@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
