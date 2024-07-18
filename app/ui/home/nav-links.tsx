@@ -22,23 +22,21 @@ export default function NavLinks() {
   const pathname = usePathname();
   return (
     <>
-      {links.map((link) => {
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={clsx(
-              'flex h-[48px] grow gap-2 p-3 text-base font-medium hover:bg-emerald-200 hover:underline md:flex-none md:justify-start md:p-2 md:px-3',
-              {
-                'bg-emerald-200': pathname === link.href,
-              },
-            )}
-          >
-            <FolderIcon />
-            <p className="md:block">{link.name}</p>
-          </Link>
-        );
-      })}
+      {links.map((link) => (
+        <Link
+          key={link.name}
+          href={link.href}
+          className={clsx(
+            'flex h-[48px] items-center gap-2 p-3 text-base font-medium hover:bg-emerald-200 hover:underline md:flex-none md:justify-start md:p-2 md:px-3',
+            {
+              'bg-emerald-200': pathname === link.href,
+            },
+          )}
+        >
+          <FolderIcon className="h-5 w-5" />
+          <p className="md:block">{link.name}</p>
+        </Link>
+      ))}
     </>
   );
 }
