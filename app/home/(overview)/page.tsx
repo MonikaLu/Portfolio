@@ -4,19 +4,20 @@ import Image from 'next/image';
 
 export default async function Page() {
   return (
-    <main className="min-h-screen">
-      <div className="flex h-full w-full flex-col items-center justify-center gap-x-5 lg:flex-row">
-        <div className="w-full flex-shrink-0 lg:w-auto">
+    <main className="flex min-h-screen flex-col justify-center">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-5 p-5 lg:flex-row lg:items-start">
+        <div className="w-full flex-shrink-0 border-2 border-solid border-emerald-400 lg:w-auto">
           <Image
             src="/monika_luu_profile.png"
             width={500}
             height={500}
             alt="Picture of the author"
-            className="h-full w-full"
+            className="h-auto w-full lg:h-full"
           />
         </div>
-        <div className="flex h-full flex-col items-center overflow-auto border-2 border-solid border-emerald-600 p-5">
-          <h1 className={`${lusitana.className} text-3xl`}>Monika Luu</h1>
+        <div className="border-5 flex flex-col items-center overflow-auto border-2 border-solid border-emerald-600 p-5 lg:h-auto lg:flex-1 lg:justify-center">
+          <h1 className={`${lusitana.className} text-3xl`}>I'm Monika Luu</h1>
+          <h2>Developer</h2>
           <p className="py-10">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus
