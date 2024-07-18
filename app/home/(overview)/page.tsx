@@ -1,4 +1,3 @@
-import { lusitana } from '@/app/ui/fonts';
 import LatestInvoices from '@/app/ui/home/latest-invoices';
 import Image from 'next/image';
 
@@ -16,7 +15,7 @@ export default async function Page() {
           />
         </div>
         <div className="border-5 flex flex-col items-center overflow-auto border-2 border-solid border-emerald-600 p-5 lg:h-auto lg:flex-1 lg:justify-center">
-          <h1 className={`${lusitana.className} text-3xl`}>I'm Monika Luu</h1>
+          <h1 className="text-3xl">I'm Monika Luu</h1>
           <h2>Developer</h2>
           <p className="py-10">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
