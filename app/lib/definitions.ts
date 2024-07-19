@@ -9,6 +9,24 @@ export type User = {
   password: string;
 };
 
+export enum Technology {
+  JavaScript,
+  React,
+  Java,
+  Django,
+  MongoDB,
+}
+
+export type Project = {
+  projectName: string;
+  customerName: string;
+  image_url: string;
+  description: string;
+  technologies: Technology[];
+  fromDate: string;
+  toDate: string;
+};
+
 export type Customer = {
   id: string;
   name: string;
