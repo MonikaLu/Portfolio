@@ -1,4 +1,7 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
+
+import { Technology } from './definitions';
+
 // https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
   {
@@ -11,15 +14,25 @@ const users = [
 
 const projects = [
   {
+    id: '1',
     projectName: 'Git Dashboard for Educators',
     customerName: 'Norwegian University of Science and Technology - NTNU',
     image_url: '/dashboard.png',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mollis aliquam ut porttitor leo. Mi ipsum faucibus vitae aliquet nec ullamcorper sit. Nulla aliquet porttitor lacus luctus. Enim eu turpis egestas pretium. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Rhoncus dolor purus non enim. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Tempor id eu nisl nunc mi. Gravida in fermentum et sollicitudin ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mollis aliquam ut porttitor leo. Mi ipsum faucibus vitae aliquet nec ullamcorper sit. Nulla aliquet porttitor lacus luctus. Enim eu turpis egestas pretium. Sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Rhoncus dolor purus non enim. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Odio aenean sed adipiscing diam donec adipiscing tristique risus. Tempor id eu nisl nunc mi. Gravida in fermentum et sollicitudin ac.',
-    technologies: ['React', 'MongoDB'],
+    technologies: [Technology.JavaScript, Technology.MongoDB],
     fromDate: '2024-01-15',
     toDate: '2024-04-20',
   },
+];
+
+const technologies = [
+  Technology.JavaScript,
+  Technology.React,
+  Technology.Java,
+  Technology.Django,
+  Technology.MongoDB,
+  Technology.Angular,
 ];
 
 const customers = [
@@ -157,4 +170,4 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
-export { users, customers, invoices, revenue };
+export { users, customers, invoices, revenue, projects, technologies };

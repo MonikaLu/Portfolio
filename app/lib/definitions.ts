@@ -10,14 +10,16 @@ export type User = {
 };
 
 export enum Technology {
-  JavaScript,
-  React,
-  Java,
-  Django,
-  MongoDB,
+  JavaScript = 'JavaScript',
+  React = 'React',
+  Java = 'Java',
+  Django = 'Django',
+  MongoDB = 'MongoDB',
+  Angular = 'Angular',
 }
 
 export type Project = {
+  id: string;
   projectName: string;
   customerName: string;
   image_url: string;

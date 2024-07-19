@@ -1,0 +1,29 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+enum Technology {
+    JavaScript
+    React
+    Java
+    Django
+    MongoDB
+    Angular
+}
+
+model Project {
+    id           String     @id @default(cuid())
+    projectName  String
+    customerName String
+    image_url    String
+    description  String
+    technologies Technology
+    fromDate     DateTime
+    toDate       DateTime
+}

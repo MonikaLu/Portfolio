@@ -1,6 +1,15 @@
 import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
-import { invoices, customers, revenue, users } from '../lib/placeholder-data';
+import {
+  invoices,
+  customers,
+  revenue,
+  users,
+  projects,
+  technologies,
+} from '../lib/placeholder-data';
+
+
 
 const client = await db.connect();
 
@@ -27,6 +36,52 @@ async function seedUsers() {
   );
 
   return insertedUsers;
+}
+
+async function seedProjects() {
+  await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+  await client.sql`
+  CREATE TABLE IF NOT EXISTS projects (
+  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  projectName VARCHAR(255) NOT NULL,
+  customerName VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  technologies ENUM('JavaScript', 'React', 'Java', 'Django', 'MangoDB', 'Angular') NOT NULL,
+  fromDate DATE NOT NULL,
+  toDate DATE NOT NULL
+  );`;
+
+  await client.sql`CREATE TABLE IF NOT EXISTS technologies (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    name ENUM('JavaScript', 'React', 'Java', 'Django', 'MongoDB', 'Angular') NOT NULL
+  );`;
+  await client.sql`CREATE TABLE IF NOT EXISTS project_technologies (
+    project_id UUID REFERENCES projects(id) ON DELETE CASCADE,
+    technology_id UUID REFERENCES technologies(id) ON DELETE CASCADE,
+    PRIMARY KEY (project_id, technology_id)
+  );`;
+
+  const insertedProjects = await Promise.all(
+    projects.map(async (project) => {
+      client.sql`
+    INSERT INTO projects (id, projectName, customerName, image_url, description, technologies, fromDate, toDate)
+    VALUES (${project.id}, ${project.projectName},${project.customerName},${project.image_url},${project.description}, ARRAY [${project.technologies.join()}], ${project.fromDate},${project.toDate})
+    RETURNING id;
+    `;
+      await Promise.all(
+        project.technologies.map(async (technology) => {
+          const insertedTechnologies = await client.sql`
+               INSERT INTO technologies (name)
+                VALUES (${technology})
+                ON CONFLICT (name) DO NOTHING
+                RETURNING id, name;
+            `;
+        }),
+      );
+    }),
+  );
 }
 
 async function seedInvoices() {
