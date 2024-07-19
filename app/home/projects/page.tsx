@@ -1,3 +1,4 @@
+import { ProjectContainer } from '@/app/ui/projects/projectContainer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export default function Page() {
       <div className="flex w-full items-center justify-between">
         <h1 className="text-2xl">Projects</h1>
       </div>
+      <ProjectContainer />
     </div>
   );
 }
