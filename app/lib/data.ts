@@ -4,10 +4,10 @@ import {
   CustomersTableType,
   InvoiceForm,
   InvoicesTable,
-  LatestInvoiceRaw,
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+import prisma from './prisma';
 
 export async function fetchRevenue() {
   try {
@@ -23,25 +23,25 @@ export async function fetchRevenue() {
   }
 }
 
-export async function fetchLatestInvoices() {
-  try {
-    const data = await sql<LatestInvoiceRaw>`
-      SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
-      FROM invoices
-      JOIN customers ON invoices.customer_id = customers.id
-      ORDER BY invoices.date DESC
-      LIMIT 5`;
+// export async function fetchLatestInvoices() {
+//   try {
+//     const data = await sql<LatestInvoiceRaw>`
+//       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
+//       FROM invoices
+//       JOIN customers ON invoices.customer_id = customers.id
+//       ORDER BY invoices.date DESC
+//       LIMIT 5`;
 
-    const latestInvoices = data.rows.map((invoice) => ({
-      ...invoice,
-      amount: formatCurrency(invoice.amount),
-    }));
-    return latestInvoices;
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch the latest invoices.');
-  }
-}
+//     const latestInvoices = data.rows.map((invoice) => ({
+//       ...invoice,
+//       amount: formatCurrency(invoice.amount),
+//     }));
+//     return latestInvoices;
+//   } catch (error) {
+//     console.error('Database Error:', error);
+//     throw new Error('Failed to fetch the latest invoices.');
+//   }
+// }
 
 export async function fetchCardData() {
   try {
@@ -208,5 +208,14 @@ export async function fetchFilteredCustomers(query: string) {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch customer table.');
+  }
+}
+
+export async function fetchAllProjects() {
+  try {
+    const projects = await prisma.project.findMany();
+    return projects;
+  } catch (error) {
+    throw new Error('Failed to fetch projects.');
   }
 }

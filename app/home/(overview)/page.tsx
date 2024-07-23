@@ -1,4 +1,3 @@
-import LatestInvoices from '@/app/ui/home/latest-invoices';
 import Image from 'next/image';
 
 export default async function Page() {
@@ -31,7 +30,6 @@ export default async function Page() {
           </p>
         </div>
       </div>
-      <LatestInvoices />
     </main>
   );
 }
