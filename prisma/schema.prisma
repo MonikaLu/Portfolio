@@ -18,12 +18,12 @@ enum Technology {
 }
 
 model Project {
-    id           String     @id @default(cuid())
+    id           String       @id @default(cuid())
     projectName  String
     customerName String
     image_url    String
     description  String
-    technologies Technology
+    technologies Technology[]
     fromDate     DateTime
     toDate       DateTime
 }
