@@ -6,7 +6,10 @@ export async function ProjectContainer() {
   return (
     <>
       {projects.map((project) => (
-        <div className="w-full border border-solid border-teal-300 p-3">
+        <div
+          key={project.id}
+          className="w-full border border-solid border-teal-300 p-3"
+        >
           <div className="flex w-full flex-row justify-between">
             <h1 className="text-xl">{project.projectName}</h1>
             <h3 className="text-lg">
@@ -27,7 +30,7 @@ export async function ProjectContainer() {
           <h4>Technologies:</h4>
           <ul>
             {project.technologies.map((technology) => (
-              <li>{technology}</li>
+              <li key={technology}>{technology}</li>
             ))}
           </ul>
         </div>
