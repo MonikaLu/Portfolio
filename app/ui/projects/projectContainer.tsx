@@ -20,7 +20,7 @@ export async function ProjectContainer() {
           <h4 className="text-md">Organization</h4>
           <div className="flex flex-row">
             <Image
-              src="/monika_luu_profile.png"
+              src={project.image_url}
               width={200}
               height={200}
               alt={'Picture of the project'}

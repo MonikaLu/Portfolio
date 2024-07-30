@@ -1,14 +1,22 @@
+import { State } from '@/app/lib/actions';
+
 interface IUserInputString {
   value: string;
   type: string;
+  state: State;
 }
 
-export default function UserInputString({ value, type }: IUserInputString) {
+export default function UserInputString({
+  value,
+  type,
+  state,
+}: IUserInputString) {
   return (
     <div className="mb-4">
       <label htmlFor={value} className="mb-2 block text-sm font-medium">
         {value}
       </label>
+      {state.errors ? <p>Error with the inputted value: {value}</p> : ''}
       <div className="relative mt-2 rounded-md">
         <div className="relative">
           <input
