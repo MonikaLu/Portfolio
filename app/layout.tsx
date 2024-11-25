@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import { lusitana } from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import MenuHeader from '@/app/ui/home/header';
 
 export const metadata: Metadata = {
   title: { default: 'Monika Luu Portfolio', template: '%s | Portfolio' },
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lusitana.className} antialiased`}>{children}</body>
+      <body className={`${lusitana.className} antialiased`}>
+        <MenuHeader />
+        {children}
+      </body>
     </html>
   );
 }
