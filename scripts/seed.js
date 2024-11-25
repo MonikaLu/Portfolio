@@ -6,6 +6,7 @@ import {
   users,
 } from '../app/lib/placeholder-data.js';
 import { hash } from 'bcrypt';
+import console from 'console';
 
 async function seedUsers(client) {
   try {
